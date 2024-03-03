@@ -18,5 +18,8 @@ poetry install
 pre-commit install
 ```
 
-### Run
-<!--- TODO docker instructions -->
+### Run (local)
+```
+docker compose up -d --wait
+python -m worker.main
+```

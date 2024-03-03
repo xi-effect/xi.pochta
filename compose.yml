@@ -1,0 +1,15 @@
+services:
+  mq:
+    image: rabbitmq:3.12.10-management-alpine
+    volumes:
+      - type: tmpfs
+        target: /var/lib/rabbitmq/
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: rabbitmq-diagnostics -q check_port_connectivity
+      start_period: 60s
+      interval: 10s
+      timeout: 60s
+      retries: 5
