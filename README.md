@@ -1,7 +1,7 @@
 # xi.pochta
 ## Basics
 ### Stack
-- Python
+- Python 3.12
 - AsyncIO
 - Aio-Pika
 - RabbitMQ
@@ -13,7 +13,7 @@
 
 ### Install
 ```
-pip install poetry==1.4.1
+pip install poetry==1.8.0
 poetry install
 pre-commit install
 ```

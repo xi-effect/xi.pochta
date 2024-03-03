@@ -1,7 +1,7 @@
 # See https://pre-commit.com/ for usage and config
 
 default_language_version:
-  python: python3.11
+  python: python3.12
 
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
@@ -23,7 +23,7 @@ repos:
       - id: autoflake
 
   - repo: https://github.com/pycqa/isort
-    rev: 5.12.0
+    rev: 5.13.2
     hooks:
       - id: isort
 
@@ -52,7 +52,7 @@ repos:
         types_or: [python, pyi]
 
   - repo: https://github.com/python-poetry/poetry
-    rev: 1.4.1
+    rev: 1.8.0
     hooks:
       - id: poetry-check
         files: ^(pyproject.toml|poetry.lock)$
