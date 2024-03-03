@@ -38,6 +38,9 @@ flake8-use-pathlib = "0.3.0"
 flake8-test-name = "^0.1.5"
 wemake-python-styleguide = "0.18.0"
 
+[tool.poetry.group.watchfiles.dependencies]
+watchfiles = "^0.21.0"
+
 [tool.isort]
 profile = "black"
 py_version = 312
