@@ -16,30 +16,55 @@ max-line-length = 88
 
 # ignores
 extend-ignore =
-  # not required or shadowed by other plugins
+  # # not required or shadowed by other plugins
   D I FI TC Q U101 S101 WPS400
-
   # black
-  WPS348 WPS352 C812 C815
-  # weird
-  PIE803 C101 FNE008 N812 ANN101 ANN102 WPS110 WPS111 VNE001 CM001
-  # broken
-  PIE798 WPS226 WPS354 WPS432 WPS473 WPS507
-  U100  # fails to understand `raise NotImplementedError` and overloading
-  WPS428  # fails to understand overloading
-  WPS601  # fails to same-name class and instance attributes (pydantic & sqlalchemy)
+  WPS317 WPS348 C812 C813
 
-  # don't block features
-  WPS237 WPS305  # f-strings are the best
-  WPS306  # python 2.x is deprecated
-  WPS420 WPS604  # pass is a thing
-  WPS430  # nested functions
-  WPS451  # positional-only arguments
-  WPS501  # try-finally with no except
-  WPS600  # subclassing lowercase builtins
-  WPS602  # @staticmethod
-  WPS605  # methods with no arguments
+  # # weird
+  PIE803 C101 FNE008 N812 ANN101 ANN102 WPS110 WPS111 WPS114 VNE001 CM001
+
+  # # broken
+  PIE798 WPS226 WPS354 WPS432 WPS473 WPS507
+  # fails to understand `raise NotImplementedError` and overloading
+  U100
+  # fails to understand overloading
+  WPS428
+  # fails to understand pipe-unions for types
+  WPS465
+  # fails to same-name class and instance attributes (pydantic & sqlalchemy)
+  WPS601
+  # to many
+  WPS201 WPS204 WPS210 WPS214 WPS217 WPS218 WPS221
+
+  # # don't block features
+  # utils is a module name
+  WPS100
+  # f-strings are the best
+  WPS237 WPS305
+  # python 2.x is deprecated
+  WPS306
+  # multiline ifs
+  WPS337
+  # noqa exists for a reason
+  WPS402
+  # pass is a thing
+  WPS420 WPS604
+  # nested functions
+  WPS430
+  # nested classes
+  WPS431
+  # positional-only arguments
+  WPS451
+  # try-finally with no except
+  WPS501
+  # subclassing lowercase builtins
+  WPS600
+  # @staticmethod
+  WPS602
+  # methods with no arguments
+  WPS605
 
 per-file-ignores =
-  test_*:       TN101 FNE005 SCS108 VNE001 WPS202 WPS211 WPS317 WPS407 WPS425 WPS432 WPS440 WPS437 WPS441 WPS442 WPS507 WPS520 WPS609
-  *conftest.py: TN101 FNE005 SCS108 VNE001 WPS202 WPS211 WPS317 WPS407 WPS425 WPS432 WPS440 WPS437 WPS441 WPS442 WPS507 WPS520 WPS609
+  test_*:       TN101 FNE005 SCS108 VNE001 WPS118 WPS202 WPS211 WPS317 WPS407 WPS425 WPS432 WPS440 WPS437 WPS441 WPS442 WPS507 WPS520 WPS609
+  *conftest.py: TN101 FNE005 SCS108 VNE001 WPS118 WPS202 WPS211 WPS317 WPS407 WPS425 WPS432 WPS440 WPS437 WPS441 WPS442 WPS507 WPS520 WPS609

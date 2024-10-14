@@ -1,0 +1,33 @@
+services:
+  mq:
+    image: rabbitmq:3.12.10-management-alpine
+    volumes:
+      - type: tmpfs
+        target: /var/lib/rabbitmq/
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    healthcheck:
+      test: rabbitmq-diagnostics -q check_port_connectivity
+      start_period: 60s
+      interval: 10s
+      timeout: 60s
+      retries: 5
+
+  worker:
+    profiles:
+      - app
+    depends_on:
+      mq:
+        condition: service_healthy
+    build:
+      context: .
+      dockerfile: Dockerfile
+      target: watchfiles
+    restart: always
+    volumes:
+      - ./worker:/backend/worker
+    environment:
+      WATCHFILES_FORCE_POLLING: true
+      PYTHONUNBUFFERED: 1
+      MQ_URL: amqp://guest:guest@mq
